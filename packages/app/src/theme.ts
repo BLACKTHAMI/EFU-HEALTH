@@ -1,29 +1,47 @@
-import { createTheme, MantineThemeOverride } from '@mantine/core';
+import { createTheme, MantineTheme, MantineThemeOverride } from '@mantine/core';
 
-export const appTheme: MantineThemeOverride = {
-  primaryColor: 'indigo',
+export const appTheme = createTheme({
+  primaryColor: 'alpine',
   colors: {
-    indigo: [
-      '#EEF2FF',
-      '#E0E7FF',
-      '#C7D2FE',
-      '#A5B4FC',
-      '#818CF8',
-      '#6366F1', // Primary color
-      '#4F46E5', // Secondary color
-      '#4338CA',
-      '#3730A3',
-      '#312E81',
+    alpine: [
+      '#FFFFFF', // White
+      '#F8FAFC', // Snow white
+      '#EDF2F7', // Ice white
+      '#E2E8F0', // Glacier white
+      '#FF3A44', // Alpine red
+      '#0066CC', // Alpine blue
+      '#00A651', // Alpine green
+      '#004999', // Deep blue
+      '#007A3D', // Deep green
+      '#CC2E36', // Deep red
     ],
   },
+  fontFamily: 'Inter, sans-serif',
+  defaultRadius: 'md',
   components: {
     Button: {
-      styles: {
+      defaultProps: {
+        size: 'md',
+        radius: 'md',
+      },
+      styles: (theme: MantineTheme) => ({
         root: {
-          borderRadius: '8px',
-          textTransform: 'none',
+          '&:not([data-disabled]):hover': {
+            transform: 'translateY(-1px)',
+          },
         },
+      }),
+    },
+    Card: {
+      defaultProps: {
+        radius: 'lg',
+        shadow: 'sm',
       },
     },
   },
-};
+  other: {
+    headerHeight: 60,
+    navbarWidth: 300,
+    containerPadding: 16,
+  },
+});

@@ -22,6 +22,7 @@ import { AppRoutes } from './AppRoutes';
 import { appTheme } from './theme';
 
 import './App.css';
+import './styles/global.css';
 
 export function App(): JSX.Element {
   const medplum = useMedplum();
@@ -35,18 +36,20 @@ export function App(): JSX.Element {
 
   return (
     <MantineProvider theme={appTheme}>
-      <AppShell
-        logo={<Logo size={24} />}
-        pathname={location.pathname}
-        searchParams={searchParams}
-        version={MEDPLUM_VERSION}
-        menus={userConfigToMenu(config)}
-        displayAddBookmark={!!config?.id}
-      >
-        <Suspense fallback={<Loading />}>
-          <AppRoutes />
-        </Suspense>
-      </AppShell>
+      <div className="min-h-screen bg-background">
+        <AppShell
+          logo={<Logo size={24} />}
+          pathname={location.pathname}
+          searchParams={searchParams}
+          version={MEDPLUM_VERSION}
+          menus={userConfigToMenu(config)}
+          displayAddBookmark={!!config?.id}
+        >
+          <Suspense fallback={<Loading />}>
+            <AppRoutes />
+          </Suspense>
+        </AppShell>
+      </div>
     </MantineProvider>
   );
 }

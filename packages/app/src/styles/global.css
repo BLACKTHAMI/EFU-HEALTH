@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0066CC;
+  --secondary: #00A651;
+  --danger: #FF3A44;
+  --warning: #F59E0B;
+  --success: #00A651;
+  --background: #F8FAFC;
+  --text: #111827;
+}
+
+.dark {
+  --primary: #004999;
+  --secondary: #007A3D;
+  --danger: #CC2E36;
+  --warning: #D97706;
+  --success: #007A3D;
+  --background: #1F2937;
+  --text: #F9FAFB;
+}
+
+body {
+  @apply bg-background text-text;
+  font-family: 'Inter', sans-serif;
+}
+
+.alpine-card {
+  @apply bg-white rounded-xl shadow-sm;
+}
+
+.alpine-button {
+  @apply rounded-lg font-medium transition-all duration-200;
+}
+
+.alpine-button-primary {
+  @apply bg-[--primary] text-white hover:bg-[--primary]/90;
+}
+
+.alpine-button-success {
+  @apply bg-[--success] text-white hover:bg-[--success]/90;
+}
+
+.alpine-button-danger {
+  @apply bg-[--danger] text-white hover:bg-[--danger]/90;
+}
