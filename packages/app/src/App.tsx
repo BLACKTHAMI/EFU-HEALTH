@@ -1,4 +1,4 @@
-import { Space } from '@mantine/core';
+import { Space, MantineProvider } from '@mantine/core';
 import { MEDPLUM_VERSION } from '@medplum/core';
 import { UserConfiguration } from '@medplum/fhirtypes';
 import { AppShell, Loading, Logo, NavbarMenu, useMedplum } from '@medplum/react';
@@ -19,6 +19,7 @@ import {
 import { FunctionComponent, Suspense } from 'react';
 import { useLocation, useSearchParams } from 'react-router';
 import { AppRoutes } from './AppRoutes';
+import { appTheme } from './theme';
 
 import './App.css';
 
@@ -33,18 +34,20 @@ export function App(): JSX.Element {
   }
 
   return (
-    <AppShell
-      logo={<Logo size={24} />}
-      pathname={location.pathname}
-      searchParams={searchParams}
-      version={MEDPLUM_VERSION}
-      menus={userConfigToMenu(config)}
-      displayAddBookmark={!!config?.id}
-    >
-      <Suspense fallback={<Loading />}>
-        <AppRoutes />
-      </Suspense>
-    </AppShell>
+    <MantineProvider theme={appTheme}>
+      <AppShell
+        logo={<Logo size={24} />}
+        pathname={location.pathname}
+        searchParams={searchParams}
+        version={MEDPLUM_VERSION}
+        menus={userConfigToMenu(config)}
+        displayAddBookmark={!!config?.id}
+      >
+        <Suspense fallback={<Loading />}>
+          <AppRoutes />
+        </Suspense>
+      </AppShell>
+    </MantineProvider>
   );
 }
 
