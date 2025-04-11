@@ -1,12 +1,40 @@
+:root {
+  /* Primary Theme Colors */
+  --mantine-primary-color: #0900ad;
+  --mantine-secondary-color: #25af3c;
+  
+  /* Additional Theme Colors */
+  --mantine-success-color: #10B981;
+  --mantine-warning-color: #F59E0B;
+  --mantine-error-color: #EF4444;
+  
+  /* Background Colors */
+  --mantine-background-light: #F9FAFB;
+  --mantine-background-dark: #1F2937;
+}
+
 html {
   height: 100%;
+  background-color: var(--mantine-background-light);
 }
 
 body,
 #root {
   min-height: 100vh;
+  color: #111827;
 }
 
 .grecaptcha-badge {
   visibility: hidden;
+}
+
+/* Custom Component Styles */
+.mantine-Button-root {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.mantine-Card-root {
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }

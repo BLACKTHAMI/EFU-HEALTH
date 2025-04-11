@@ -10,3 +10,6 @@ body,
 .grecaptcha-badge {
   visibility: hidden;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
